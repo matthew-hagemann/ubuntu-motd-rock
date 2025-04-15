@@ -12,6 +12,7 @@ parts:
   apache:
     plugin: dump
     source: ./ubuntu-motd
+    source-type: local
     build-packages:
       - apache2
     overlay-packages:
@@ -24,3 +25,4 @@ parts:
   apache2conf:
     plugin: dump
     source: ./ubuntu-motd/files
+    source-type: local
