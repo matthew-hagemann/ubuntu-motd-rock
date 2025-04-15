@@ -11,7 +11,7 @@ platforms:
 parts:
   apache:
     plugin: dump
-    source: ubuntu-motd
+    source: ./ubuntu-motd
     build-packages:
       - apache2
     overlay-packages:
@@ -23,4 +23,4 @@ parts:
       cp $CRAFT_PART_SRC/.htaccess $CRAFT_PART_INSTALL/var/www/html/.htaccess
   apache2conf:
     plugin: dump
-    source: ubuntu-motd/files
+    source: ./ubuntu-motd/files
