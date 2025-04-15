@@ -1,0 +1,26 @@
+name: motd 
+summary: Message of the Day
+description: Apache2 based rock for serving the Ubuntu message of the day
+version: "latest"
+license: AGPL-3.0
+
+base: ubuntu@24.04
+platforms:
+  amd64:
+
+parts:
+  apache:
+    plugin: dump
+    source: .
+    build-packages:
+      - apache2
+    overlay-packages:
+      - apache2
+    override-build: |
+      craftctl default
+      mkdir -p $CRAFT_PART_INSTALL/var/www/html
+      cp $CRAFT_PART_SRC/index.txt $CRAFT_PART_INSTALL/var/www/html/index.txt
+      cp $CRAFT_PART_SRC/.htaccess $CRAFT_PART_INSTALL/var/www/html/.htaccess
+  apache2conf:
+    plugin: dump
+    source: files
