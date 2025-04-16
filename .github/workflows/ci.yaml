@@ -26,6 +26,7 @@ jobs:
           bzr branch lp:ubuntu-motd /home/runner/work/ubuntu-motd-rock/ubuntu-motd-rock/ubuntu-motd
 
       - uses: canonical/craft-actions/rockcraft-pack@main
+        id: rockcraft
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
