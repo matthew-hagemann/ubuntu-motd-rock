@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build and publish:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
@@ -26,3 +26,9 @@ jobs:
           bzr branch lp:ubuntu-motd /home/runner/work/ubuntu-motd-rock/ubuntu-motd-rock/ubuntu-motd
 
       - uses: canonical/craft-actions/rockcraft-pack@main
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rock
+          path: ${{ steps.rockcraft.outputs.rock }}
+
